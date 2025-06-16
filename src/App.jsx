@@ -2,14 +2,19 @@
 import './App.css'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-import LoginComponent from './pages/login/Login'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoginPage from './pages/login/LoginPage'
+import HomePage from './pages/home/HomePage'
 
 function App() {
 
    return (
-    <div className='mainContainer'>
-        <LoginComponent></LoginComponent>
-    </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
    )
 
 

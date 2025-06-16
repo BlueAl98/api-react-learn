@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useLogin } from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom'
 
-function LoginComponent() {
+function LoginPage() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { login } = useLogin()
+    const navigate = useNavigate()
+
 
 
     
@@ -14,6 +17,7 @@ function LoginComponent() {
     try {
       const data = await login(email, password)
       console.log('✅ Login success:', data)
+      navigate('/home')
     } catch {
       console.error('❌ Login failed')
     }
@@ -83,4 +87,4 @@ function LoginComponent() {
      );
 }
 
-export default LoginComponent;
+export default LoginPage;
