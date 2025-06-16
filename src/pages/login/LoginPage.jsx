@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { useLogin } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthProvider';
 
 function LoginPage() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useLogin()
+    const { loginApi } = useLogin()
     const navigate = useNavigate()
-
-
+    const { login } = useAuth()
+ 
 
     
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const data = await login(email, password)
+      const data = await loginApi(email, password)
       console.log('✅ Login success:', data)
-      navigate('/home')
+      login(data.token)
+      navigate('/home') 
     } catch {
       console.error('❌ Login failed')
     }
