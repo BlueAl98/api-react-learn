@@ -1,11 +1,30 @@
+import React, { useState } from 'react';
+import { useLogin } from '../../hooks/useAuth';
 
 function LoginComponent() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const { login } = useLogin()
+
+
+    
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    try {
+      const data = await login(email, password)
+      console.log('✅ Login success:', data)
+    } catch {
+      console.error('❌ Login failed')
+    }
+  }
+
     return ( 
       <div className="bg-sky-100 flex justify-center items-center h-screen">
       {/* Left image */}
       <div className="w-1/2 h-screen hidden lg:block">
         <img
-          src="https://marketplace.canva.com/EAGTFvtoJBA/1/0/1600w/canva-white-and-blue-futuristic-background-instagram-post-dtk7uL9YRm0.jpg"
+          src="https://as1.ftcdn.net/v2/jpg/09/41/16/60/1000_F_941166002_ZAQEbMyLLxwWKEM19xf9yfKNj6MeVFdp.jpg"
           alt="Placeholder"
           className="object-cover w-full h-full"
         />
@@ -16,11 +35,13 @@ function LoginComponent() {
         <div className="w-full max-w-md p-8 shadow-lg rounded-lg">
           <h2 className="text-3xl font-bold mb-6 text-center text-sky-600">Login</h2>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleLogin}>
             <div>
               <label className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
                 placeholder="you@example.com"
               />
@@ -30,6 +51,8 @@ function LoginComponent() {
               <label className="block text-sm font-medium text-gray-700">Password</label>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
                 placeholder="••••••••"
               />
