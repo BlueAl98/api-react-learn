@@ -11,7 +11,6 @@ export function useItems() {
         return data
       } catch (err) {
         setError(err.message)
-        console.log('erro items', err.message)
         throw err
       }
     }
