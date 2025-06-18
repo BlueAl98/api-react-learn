@@ -1,21 +1,23 @@
-import React from 'react'
 
-function CardComp({ title, description, imageUrl, onClick }) {
+import React from 'react';
+
+function CardComp({ iconClass, text, gradient = 'from-blue-500 to-purple-600' }) {
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out p-4">
-      <img className="w-full h-48 object-cover" src={imageUrl} alt={title} />
-      <div className="p-5">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-2">{title}</h2>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <button
-          onClick={onClick}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg"
-        >
-          Learn More
-        </button>
+    <div className={`flex flex-row items-center 
+    justify-around text-white 
+    rounded-2xl 
+    shadow-lg p-6
+    bg-gradient-to-br ${gradient} 
+    flex-1
+    m-4
+    ` 
+     }>
+      <i className={`${iconClass} text-4xl mb-2`}></i>
+      <div className="text-lg font-semibold text-center p-3">
+        {text}
       </div>
     </div>
-  )
+  );
 }
 
-export default CardComp
+export default CardComp;

@@ -2,6 +2,9 @@ import React, { Component, useState, useEffect } from 'react';
 import { logoutUser } from '../../utils/manageStorage';
 import { useItems } from '../../hooks/useItems';
 import CardComp from '../../components/CardComp';
+import LeftBar from '../../components/LeftBar';
+import TopSectionComp from '../../components/TopSecctionComp';
+
 
 
 function HomePage() {
@@ -11,7 +14,7 @@ function HomePage() {
     const [items, setItems]= useState([])
 
       // 🔁 Fetch when the component mounts
-   useEffect(() => {
+ /*  useEffect(() => {
     const fetchItems = async () => {
       try {
         const data = await getApiItems();
@@ -23,24 +26,43 @@ function HomePage() {
     };
 
     fetchItems();
-  }, []); 
+  }, []); */
 
 
     return ( 
-        <div className='grid 
-        grid-cols-1  sm:grid-cols-2 
-         md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10'>
-     
-     {items.map((item) => (
-      <CardComp
-    key={item.id}
-    title={item.name}
-    description={`Total: ${item.count} - ${item.note}`}
-    imageUrl="https://w7.pngwing.com/pngs/803/613/png-transparent-bloo-frances-frankie-foster-imaginary-friend-cartoon-network-bloo-thumbnail.png" // usa una imagen predeterminada o dinámica
-    onClick={() => alert(`Clicked ${item.name}`)}
-  />
-   ))}
+        <div className='flex  w-full h-full bg-light-black'>
+           
+           <LeftBar title = 'something' />
+           
+           <div className='flex flex-1 flex-col'>
+           <TopSectionComp/>
             
+            <div className='flex  w-full  justify-around '>
+            <CardComp
+               iconClass="fas fa-bell"
+               text="Bell"
+              gradient="from-lime-400 to-emerald-600"
+      />
+
+            <CardComp
+               iconClass="fas fa-rocket"
+               text="Launch"
+              gradient="from-amber-400 to-orange-600
+"
+      />
+
+          <CardComp
+               iconClass="fas fa-user"
+               text="Launch"
+              gradient="from-blue-500 to-indigo-600
+"
+          />
+
+            </div>
+
+           </div>
+           
+        
         </div>
      );
 }
