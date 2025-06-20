@@ -6,7 +6,6 @@ import LeftBar from '../../components/LeftBar';
 import TopSectionComp from '../../components/TopSecctionComp';
 
 
-
 function HomePage() {
 
     const { getApiItems, error } = useItems() // ✅ hook at top level
@@ -57,11 +56,16 @@ function HomePage() {
               gradient="from-blue-500 to-indigo-600
 "
           />
-
             </div>
 
+           <div className='bg-green-500 flex-1 '>
+            <h1>Container 1</h1>
            </div>
            
+           <div className='bg-white flex-1 '>
+            <h1>Container 2</h1>
+           </div>
+           </div>
         
         </div>
      );
