@@ -11,6 +11,7 @@ html, body, #root {
     --light-black: #121212;
     --electric-blue: #1E90FF;
     --royal-blue: #0056D2;
+    --sp-black: #242424;
   }
 
   
@@ -19,6 +20,12 @@ html, body, #root {
   .bg-light-black {
     background-color: var(--light-black);
   }
+
+  .bg-sp-black{
+    background-color: var(--sp-black);
+
+  }
+
   .text-light-black {
     color: var(--light-black);
   }
