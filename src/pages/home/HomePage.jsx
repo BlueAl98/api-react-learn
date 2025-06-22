@@ -2,9 +2,9 @@ import React, { Component, useState, useEffect } from 'react';
 import { logoutUser } from '../../utils/manageStorage';
 import { useItems } from '../../hooks/useItems';
 import CardComp from '../../components/CardComp';
-import LeftBar from '../../components/LeftBar';
 import TopSectionComp from '../../components/TopSecctionComp';
-
+import CircularProgress from '../../components/CircularProgress';
+import LeftBar from '../../components/leftBar';
 
 function HomePage() {
 
@@ -58,8 +58,12 @@ function HomePage() {
           />
             </div>
 
-           <div className='bg-green-500 flex-1 '>
-            <h1>Container 1</h1>
+           <div className='flex  flex-1 items-center justify-around '>
+            
+           <CircularProgress percentage={75} color="text-blue-500" title='Title 1' />
+           <CircularProgress percentage={80} color="text-yellow-500" title='Title 2'/>
+           <CircularProgress percentage={90} color="text-red-500" title='Title 3'/>
+
            </div>
            
            <div className='bg-white flex-1 '>

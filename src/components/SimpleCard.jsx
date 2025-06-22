@@ -7,7 +7,7 @@ function SimpleCardComp({title}) {
     from-gray-900 via-gray-800 to-black
      text-white shadow-sm shadow-amber-50
         transform hover:scale-105 transition duration-300 ease-in-out
-  cursor-pointer
+        cursor-pointer
      ">
         <h2 className="text-lg font-semibold text-center">{title}</h2>
    </div>
