@@ -1,6 +1,9 @@
 # Dockerfile
 FROM node:20-alpine
 
+# 👇 Add polling support for file watching (used by Vite in Docker)
+ENV CHOKIDAR_USEPOLLING=true
+
 WORKDIR /app
 
 COPY package*.json ./

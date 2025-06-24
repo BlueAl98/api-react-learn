@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    host: true // 👈 esto es clave
+    host: true, // 👈 esto es clave
+    watch: {
+      usePolling: true
+    }
   }
 })

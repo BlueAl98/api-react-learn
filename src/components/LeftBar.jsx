@@ -1,12 +1,14 @@
 import React from 'react';
 import SimpleCardComp from './SimpleCard';
 
-function LeftBar({title}) {
+function LeftBar({title, className}, ref) {
     return ( 
-        <div className='flex w-1/4 h-full from-gray-900 flex-col' >
-           <br />
-           <div className='flex p-3 justify-center h-auto w-auto'>
-           <img src="/src/assets/logo.png"   />
+<div className={`flex w-1/4  flex-col   ${className} ${ref}`}>
+<br />
+           <div className='flex p-3 justify-center h-auto w-auto '>
+
+           <img src={new URL('/src/assets/logo.png', import.meta.url).href}
+           />
            </div>
           <br />
           <div className=' m-4'>

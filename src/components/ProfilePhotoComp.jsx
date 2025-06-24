@@ -5,7 +5,7 @@ function ProfilePhoto({imageUrl}) {
             <img 
             src= {imageUrl}
              alt="Profile"
-            class="w-12 h-12 rounded-full m-2"
+            className="w-12 h-12 rounded-full m-2"
             />
      
       );

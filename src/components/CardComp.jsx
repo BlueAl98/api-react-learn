@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-function CardComp({ iconClass, text, gradient = 'from-blue-500 to-purple-600' }) {
+function CardComp({ iconClass, text, gradient = 'from-blue-500 to-purple-600', event   }) {
   return (
-    <div className={`flex flex-row items-center 
+    <div  onClick={event} className={`flex flex-row items-center 
     justify-around text-white 
     rounded-2xl 
     shadow-lg p-6
